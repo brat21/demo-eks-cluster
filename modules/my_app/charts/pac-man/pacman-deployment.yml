@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pac-man
+  namespace: my-app
+  labels:
+    name: pac-man
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: pac-man
+  template:
+    metadata:
+      labels:
+        name: pac-man
+    spec:
+      containers:
+        - name: pac-man
+          image: docker.io/jessehoch/pacman-nodejs-app:latest
+          ports:
+            - name: http-server
+              containerPort: 8080
+              protocol: TCP

@@ -1,0 +1,12 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: mongo-pdb
+  namespace: my-app
+  labels:
+    name: pac-man
+spec:
+  selector:
+    matchLabels:
+      name: mongo
+  minAvailable: 100%

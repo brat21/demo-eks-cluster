@@ -1,0 +1,12 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: pacman-pdb
+  namespace: my-app
+  labels:
+    name: pac-man
+spec:
+  selector:
+    matchLabels:
+      name: pac-man
+  minAvailable: 100%

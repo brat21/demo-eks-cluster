@@ -1,1 +1,0 @@
-# demo-eks-cluster
