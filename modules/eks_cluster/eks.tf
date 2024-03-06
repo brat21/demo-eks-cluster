@@ -8,6 +8,10 @@ data "aws_iam_session_context" "current" {
   arn = data.aws_caller_identity.current.arn
 }
 
+data "aws_eks_cluster_auth" "cluster" {
+  name = aws_eks_cluster.cluster.name
+}
+
 resource "aws_eks_cluster" "cluster" {
   name     = var.eks_cluster_name
   role_arn = aws_iam_role.eks_cluster.arn

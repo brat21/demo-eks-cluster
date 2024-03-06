@@ -17,3 +17,8 @@ variable "eks_cluster_name" {
   description = "EKS Cluster Name"
   default     = ""
 }
+
+variable "eks_auth_token" {
+  description = "Auth token for EKS cluster"
+  default     = ""
+}

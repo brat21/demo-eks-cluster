@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "tfstate" {
-  bucket = "${var.bucket_name}"
+  bucket = var.bucket_name
 }
 
 resource "aws_s3_bucket_versioning" "tf_versioning" {

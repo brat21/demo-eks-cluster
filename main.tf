@@ -14,8 +14,9 @@ module "eks_cluster" {
 }
 
 module "my_apps" {
-  source          = "./modules/my_apps/"
-  eks_endpoint    = module.eks_cluster.eks_endpoint
-  eks_certificate = module.eks_cluster.eks_certificate
+  source           = "./modules/my_apps/"
+  eks_endpoint     = module.eks_cluster.eks_endpoint
+  eks_certificate  = module.eks_cluster.eks_certificate
   eks_cluster_name = module.eks_cluster.eks_cluster_name
-}
+  eks_auth_token   = module.eks_cluster.eks_auth_token
+} 

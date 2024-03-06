@@ -17,5 +17,10 @@ output "eks_endpoint" {
 
 output "eks_certificate" {
   description = "Certificate for EKS cluster"
-  value       = aws_eks_cluster.cluster.certificate_authority[0].data
+  value       = aws_eks_cluster.cluster.certificate_authority.0.data
+}
+
+output "eks_auth_token" {
+  description = "EKS Auth token for EKS cluster"
+  value       = data.aws_eks_cluster_auth.cluster.token
 }
