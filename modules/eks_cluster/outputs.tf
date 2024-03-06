@@ -14,3 +14,8 @@ output "eks_endpoint" {
   description = "Endpoint for EKS control plane"
   value       = aws_eks_cluster.cluster.endpoint
 }
+
+output "eks_certificate" {
+  description = "Certificate for EKS cluster"
+  value       = aws_eks_cluster.cluster.certificate_authority[0].data
+}

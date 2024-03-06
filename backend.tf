@@ -1,14 +1,9 @@
 terraform {
-  #  backend "s3" {
-  #    encrypt = true
-  #  }
-  #}
-
   backend "s3" {
-    bucket         = "my-tf-bucket-5-tfstate"
+    bucket         = "my-tf-bucket"
     key            = "state/terraform.tfstate"
-    region         = "us-east-1"
+    region         = "eu-west-1"
     encrypt        = true
-    dynamodb_table = "my-tf-bucket-5-tf-lock-table"
+    dynamodb_table = "my-tf-bucket-tf-lock-table"
   }
 }

@@ -1,9 +1,3 @@
-#module "remote_state" {
-#  source      = "./modules/s3backend/"
-#  bucket_name = var.bucket_name
-#  aws_region  = var.aws_region
-#}
-
 module "network" {
   source     = "./modules/network/"
   aws_region = var.aws_region
@@ -19,14 +13,9 @@ module "eks_cluster" {
   private_subnets        = module.network.private_subnets
 }
 
-module "my_app" {
-  source = "./modules/my_app/"
-  # my_app_namespace = "my-app"
+module "my_apps" {
+  source          = "./modules/my_apps/"
+  eks_endpoint    = module.eks_cluster.eks_endpoint
+  eks_certificate = module.eks_cluster.eks_certificate
+  eks_cluster_name = module.eks_cluster.eks_cluster_name
 }
-
-
-#odule "eks_apps" {
-# source      = "./modules/eks_apps/"
-# bucket_name = var.bucket_name
-# region      = var.aws_region
-#

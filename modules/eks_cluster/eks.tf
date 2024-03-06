@@ -18,7 +18,6 @@ resource "aws_eks_cluster" "cluster" {
   }
 
   vpc_config {
-    #subnet_ids        = flatten([aws_subnet.private.*.id])
     subnet_ids         = flatten([var.private_subnets])
     security_group_ids = [aws_security_group.cluster.id]
 
